@@ -1,0 +1,28 @@
+{
+  "name": "agar-clone",
+  "version": "1.0.0",
+  "description": "Clone of agar.io using socket.io",
+  "main": "servers.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anuragb26/agar-clone.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anuragb26/agar-clone/issues"
+  },
+  "homepage": "https://github.com/anuragb26/agar-clone#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "helmet": "^3.21.2",
+    "socket.io": "^2.3.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.2"
+  }
+}
