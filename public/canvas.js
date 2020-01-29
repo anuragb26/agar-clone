@@ -1,16 +1,18 @@
 function init() {
   draw();
+  console.log("orbs", orbs);
 }
 
 player.locX = Math.floor(500 * Math.random() + 10);
 player.locY = Math.floor(500 * Math.random() + 10);
 
 function draw() {
+  // reset the translation back to default
+  context.setTransform(1, 0, 0, 1, 0, 0);
+
   // clear the screen out
   context.clearRect(0, 0, canvas.width, canvas.height);
 
-  // reset the translation back to default
-  context.setTransform(1, 0, 0, 1, 0, 0);
   // clamp the camera to the player
   const camX = -player.locX + canvas.width / 2;
   const camY = -player.locY + canvas.height / 2;
@@ -24,11 +26,17 @@ function draw() {
   // Math.PI * 2 where to stop the circle in radians
 
   context.arc(player.locX, player.locY, 10, 0, Math.PI * 2);
-  context.arc(200, 200, 10, 0, Math.PI * 2);
+
   context.fill();
   context.lineWidth = 3;
   context.strokeStyle = "rgb(0,255,0)";
   context.stroke();
+  orbs.forEach(orb => {
+    context.beginPath();
+    context.fillStyle = orb.color;
+    context.arc(orb.locX, orb.locY, orb.radius, 0, Math.PI * 2);
+    context.fill();
+  });
   requestAnimationFrame(draw);
 }
 
