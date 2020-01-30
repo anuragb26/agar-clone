@@ -2,6 +2,14 @@ console.log("socket script");
 
 let socket = io.connect("http://localhost:8080");
 
-socket.on("init", data => {
+function init() {
+  draw();
+  console.log("orbs", orbs);
+  socket.emit("init", {
+    playerName: player.name
+  });
+}
+
+socket.on("initReturn", data => {
   orbs = data.orbs;
 });
